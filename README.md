@@ -1,36 +1,40 @@
-This is a [Next.js](https://nextjs.org) project bootstrapped with [`create-next-app`](https://nextjs.org/docs/app/api-reference/cli/create-next-app).
+# Dovychovat audio kurzy
 
-## Getting Started
+Jednoduchá Next.js aplikace pro přehrávání zvukových nahrávek rozdělených do kurzů. Domovská stránka nabízí přehled kurzů, po rozkliknutí lze přehrávat jednotlivé MP3 soubory, číst popisky a stahovat je pro offline poslech.
 
-First, run the development server:
+## Jak začít
 
 ```bash
+npm install
 npm run dev
-# or
-yarn dev
-# or
-pnpm dev
-# or
-bun dev
 ```
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+Aplikace poběží na adrese [http://localhost:3000](http://localhost:3000). Zdrojové soubory jsou v adresáři `src/app`, data o kurzech v `src/lib/courses.ts`.
 
-You can start editing the page by modifying `app/page.tsx`. The page auto-updates as you edit the file.
+## Úprava kurzů a epizod
 
-This project uses [`next/font`](https://nextjs.org/docs/app/building-your-application/optimizing/fonts) to automatically optimize and load [Geist](https://vercel.com/font), a new font family for Vercel.
+- Každý kurz je objekt se `slug`, `title`, `description` a polem `lessons`.
+- Lekce obsahují `title`, `audioUrl`, volitelný `description` a `duration`.
+- Stačí upravit nebo přidat položky v `src/lib/courses.ts` a uložit – díky Hot Reload se změny okamžitě projeví.
 
-## Learn More
+Pokud chcete oddělit data do externího souboru (JSON, CMS), můžete místo statického importu načítat data přes API route nebo vlastní datovou vrstvu.
 
-To learn more about Next.js, take a look at the following resources:
+## Kam nahrávat MP3 soubory
 
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
+Pro několik stovek MB dobře fungují zdarma tyto varianty:
 
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js) - your feedback and contributions are welcome!
+1. **Cloudflare R2 (Free Tier)** – 10 GB úložiště zdarma, generuje veřejné URL. Stačí vytvořit bucket, povolit veřejný přístup a URL vložit do `audioUrl`. 
+2. **Supabase Storage (Free Tier)** – 1 GB prostoru, jednoduché webové UI i API. Po vytvoření projektu nastavte veřejný bucket a soubory nahrajte přes jejich dashboard.
+3. **GitHub Releases** – pro jednotlivé nahrávky do desítek MB můžete soubory přiložit k Release. GitHub poskytuje přímé odkazy, vhodné spíš pro menší počty souborů.
 
-## Deploy on Vercel
+Pokud potřebujete soubory soukromě, zvažte generování podepsaných URL (Cloudflare/Supabase to umí) a doplnění jednoduché autentizace v Next.js (např. pomocí middleware nebo služby jako Clerk/NextAuth).
 
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
+## Nasazení
 
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/app/building-your-application/deploying) for more details.
+Aplikaci lze snadno nasadit na [Vercel](https://vercel.com/) – stačí připojit Git repozitář. Případně můžete použít Docker či libovolný hosting, který podporuje Node.js (doporučená verze ≥ 18.18).
+
+## Další kroky
+
+- Přidání CMS rozhraní pro pohodlné zadávání kurzů.
+- Napojení na privátní úložiště s přístupem přes token.
+- Doplnění analytiky nebo jednoduchého „poslední přehraná epizoda“ pomocí localStorage.
