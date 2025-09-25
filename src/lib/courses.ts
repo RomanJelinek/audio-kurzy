@@ -21,7 +21,7 @@ export const courses: Course[] = [
     slug: "jak-vychovat-chlapecka-jak-vychovat-holcicku",
     title: "Respektující výchova",
     description:
-      "Tak, jako nejsou stejné den a noc, tak nejsou stejní chlapci a dívky. Pojď se naladit na vlnu poznání, jak pomoct sobě i svým dětem.",
+      "Komplexní úvod do respektující výchovy zaměřený na role rodičů, důvěru a každodenní rituály doma.",
     icon: "🤝",
     accentColor: "#2E8B57",
     accentLight: "#E6F4ED",
@@ -248,7 +248,7 @@ export const courses: Course[] = [
     slug: "vychova-kluka",
     title: "Jak vychovat kluka",
     description:
-      "Celý kurz je rozdělen do 10 lekcí + bonusová lekce.",
+      "Praktický průvodce výchovou chlapce od budování důvěry přes hranice až po pubertu.",
     icon: "🧢",
     accentColor: "#1E88E5",
     accentLight: "#E3F2FD",
@@ -314,7 +314,7 @@ export const courses: Course[] = [
     slug: "vnitrni-pohoda",
     title: "Cesta k vnitřní pohodě",
     description:
-      "Celý kurz je rozdělen do 15 lekcí",
+      "Sebepoznávací cesta, která pracuje s minulostí, obavami a každodenní vděčností.",
     icon: "🧘",
     accentColor: "#8E24AA",
     accentLight: "#F3E5F5",
@@ -415,7 +415,7 @@ export const courses: Course[] = [
     slug: "komunikace-bez-kriku",
     title: "7 technik komunikace bez křiku",
     description:
-      "Celý kurz je rozdělen do 8 lekcí",
+      "Sedm technik klidné komunikace, od pravidel rozhovoru po empatický dialog.",
     icon: "🗣️",
     accentColor: "#FB8C00",
     accentLight: "#FFE8CC",
@@ -471,7 +471,7 @@ export const courses: Course[] = [
     slug: "konflikty-ve-vztahu",
     title: "Jak zvládat konflikty ve vztahu",
     description:
-      "Celý kurz je rozdělen do 8 lekcí",
+      "Jak uchopit partnerské konflikty krok za krokem a obnovit vzájemné porozumění.",
     icon: "💞",
     accentColor: "#D81B60",
     accentLight: "#FCE0EB",
@@ -527,7 +527,7 @@ export const courses: Course[] = [
     slug: "naucte-se-rikat",
     title: "Naučte se říkat, co se vám nelíbí",
     description:
-      "Celý kurz je rozdělen do 6 lekcí",
+      "Praktické nástroje, jak říkat, co vám vadí, a dávat zpětnou vazbu s respektem.",
     icon: "💬",
     accentColor: "#43A047",
     accentLight: "#E8F5E9",
@@ -568,7 +568,7 @@ export const courses: Course[] = [
     slug: "ostatni",
     title: "Krátké kurzy",
     description:
-      "Celý kurz je rozdělen do 8 lekcí",
+      "Rychlé minikurzy k důvěře dětí, sportovním ambicím i domácímu vzdělávání.",
     icon: "✨",
     accentColor: "#6D4C41",
     accentLight: "#F3E5E0",
