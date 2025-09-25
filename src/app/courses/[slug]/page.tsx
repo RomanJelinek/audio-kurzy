@@ -71,7 +71,12 @@ export default async function CoursePage({ params }: CoursePageProps) {
 
       <ol className={styles.lessonList}>
         {course.lessons.map((lesson, index) => (
-          <LessonPlayer key={lesson.id} lesson={lesson} index={index} />
+          <LessonPlayer
+            key={lesson.id}
+            lesson={lesson}
+            index={index}
+            courseSlug={course.slug}
+          />
         ))}
       </ol>
     </div>
