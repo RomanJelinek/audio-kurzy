@@ -47,6 +47,19 @@ export function LessonPlayer({ lesson, index, courseSlug }: LessonPlayerProps) {
     }
   }, []);
 
+  const handleSkip = useCallback((offsetSeconds: number) => {
+    const audio = audioRef.current;
+    if (!audio) {
+      return;
+    }
+
+    const nextTime = audio.currentTime + offsetSeconds;
+    const hasDuration = Number.isFinite(audio.duration);
+    const upperBound = hasDuration ? audio.duration : Number.POSITIVE_INFINITY;
+
+    audio.currentTime = Math.max(0, Math.min(upperBound, nextTime));
+  }, []);
+
   const handleCompletionChange = useCallback(
     (event: ChangeEvent<HTMLInputElement>) => {
       const nextValue = event.target.checked;
@@ -111,6 +124,24 @@ export function LessonPlayer({ lesson, index, courseSlug }: LessonPlayerProps) {
         <source src={lesson.audioUrl} type="audio/mpeg" />
         Váš prohlížeč nepodporuje přehrávání audia.
       </audio>
+      <div className={styles.skipControls}>
+        <button
+          type="button"
+          className={styles.skipButton}
+          onClick={() => handleSkip(-10)}
+          aria-label="Přeskočit o 10 sekund zpět"
+        >
+          -10 s
+        </button>
+        <button
+          type="button"
+          className={styles.skipButton}
+          onClick={() => handleSkip(10)}
+          aria-label="Přeskočit o 10 sekund vpřed"
+        >
+          +10 s
+        </button>
+      </div>
     </li>
   );
 }
