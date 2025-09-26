@@ -18,7 +18,7 @@ export type Course = {
 
 export const courses: Course[] = [
   {
-    slug: "jak-vychovat-chlapecka-jak-vychovat-holcicku",
+    slug: "respektujici-vychova",
     title: "Respektující výchova",
     description:
       "Komplexní úvod do respektující výchovy zaměřený na role rodičů, důvěru a každodenní rituály doma.",
